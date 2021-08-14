@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -ex
+
+# This is the master script for the capsule. When you click "Reproducible Run", the code in this file will execute.
+g++ -std=c++17 -I ./ -Ofast -o CComp 'compress.cpp' 'compress.hpp' 'decompress.cpp' 'decompress.hpp' 'firstPass.cpp' 'firstPass.hpp' 'main.cpp' 'robin_growth_policy.h' 'robin_hash.h' 'robin_map.h' 'robin_set.h' 'search.cpp' 'search.hpp' 'secondPass.cpp' 'secondPass.hpp' 'StartEnd.hpp' 'util.cpp' 'util.hpp' 'wordPointer.hpp' -lpthread -lstdc++fs
+
+#For compression
+./CComp -c /data/english50MB.txt 16 80
+#For decompression
+#./CComp -d /data/english50MB.txt 16
+#For compressed search
+#./CComp -s /data/english50MB.txt 16 the
