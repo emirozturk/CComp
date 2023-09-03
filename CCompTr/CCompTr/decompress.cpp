@@ -32,20 +32,6 @@ void CreateDictionaries(std::vector<unsigned char> dict) {
 	}
 }
 
-/*
-ç - 231 c3 a7 | 195 167 ->128 *
-ö - 246 c3 b6 | 195 182 ->129 *
-ü - 252 c3 bc | 195 188 ->130 *
-ı - 305 c4 b1 | 196 177 ->131 *
-ş - 351 c5 9f | 197 159 ->132 *
-
-Ç - 199 c3 87 | 195 135 ->133 *
-Ö - 214 c3 96 | 195 150 ->134 *
-Ü - 220 c3 9c | 195 156 ->135 *
-İ - 304 c4 b0 | 196 176 ->136 *
-Ş - 350 c5 9e | 197 158 ->137 *
-*/
-
 void decode(std::vector<unsigned char> stream,unsigned int start,unsigned int end,std::vector<char>& result){
     bool prevIsAlpha = false;
     bool isAlpha = false;
@@ -71,23 +57,7 @@ void decode(std::vector<unsigned char> stream,unsigned int start,unsigned int en
             auto& word = byteDictionaries[dictIndex][code];
             isAlpha = word.size() > 0 && isLetter[word[0]];
             if (prevIsAlpha && isAlpha)
-                result.push_back(32);            
-            if(word[0] >20 && word[0]<31){
-                std::vector<unsigned char> replacement(2);
-                if(word[0]==128)replacement = {(unsigned char)195, (unsigned char)167};
-                if(word[0]==129)replacement = {(unsigned char)195, (unsigned char)182};
-                if(word[0]==130)replacement = {(unsigned char)195, (unsigned char)188};
-                if(word[0]==131)replacement = {(unsigned char)196, (unsigned char)177};
-                if(word[0]==132)replacement = {(unsigned char)197, (unsigned char)159};
-                if(word[0]==133)replacement = {(unsigned char)195, (unsigned char)135};
-                if(word[0]==134)replacement = {(unsigned char)195, (unsigned char)150};
-                if(word[0]==135)replacement = {(unsigned char)195, (unsigned char)156};
-                if(word[0]==136)replacement = {(unsigned char)196, (unsigned char)176};
-                if(word[0]==137)replacement = {(unsigned char)197, (unsigned char)158};
-                word.erase(word.begin());
-                word.insert(word.begin(), replacement.begin(), replacement.end());
-
-            }
+                result.push_back(32);
             result.insert(result.end(), word.begin(), word.end());
         }
         prevIsAlpha = isAlpha;
