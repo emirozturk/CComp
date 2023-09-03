@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "organizeDictIndexes(std::__1::vector&lt;tsl::robin_map&lt;unsigned char, unsigned int, std::__1::hash&lt;unsigned char&gt;, std::__1::equal_to&lt;unsigned char&gt;, std::__1::allocator&lt;std::__1::pair&lt;unsigned char, unsigned int&gt; &gt;, false, tsl::rh::power_of_two_growth_policy&lt;2ul&gt; &gt;, std::__1::allocator&lt;tsl::robin_map&lt;unsigned char, unsigned int, std::__1::hash&lt;unsigned char&gt;, std::__1::equal_to&lt;unsigned char&gt;, std::__1::allocator&lt;std::__1::pair&lt;unsigned char, unsigned int&gt; &gt;, false, tsl::rh::power_of_two_growth_policy&lt;2ul&gt; &gt; &gt; &gt;):firstPass.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "wfGlobal[pair.first]">
+            </PersistentString>
+            <PersistentString
+               value = "wfGlobal[&apos;a&apos;]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
