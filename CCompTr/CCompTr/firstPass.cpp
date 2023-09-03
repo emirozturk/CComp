@@ -13,19 +13,18 @@
 
                       // 0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19
 char dictIndexes[256]{  14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14,
-                        14,  9, 13,  9,  8, 11,  9, 13,  9,  8, 11, 14, 14, 14, 14, 14, 14, 14, 14, 14,
+                        14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14,
                         14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14,
                         14, 14, 14, 14, 14,  2,  0,  8,  3, 10, 10,  7, 13,  6, 13,  1,  3, 12,  7,  9,
                         12, 14,  5,  4,  8,  6, 11, 14, 14,  5,  4, 14, 14, 14, 14, 14, 14,  2,  0,  8,
-                        3, 10, 10,  7, 13,  6, 13,  1,  3, 12,  7,  9, 12, 14,  5,  4,  8,  6, 11, 14,
-                        14,  5,  4, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14,
+                         3, 10, 10,  7, 13,  6, 13,  1,  3, 12,  7,  9, 12, 14,  5,  4,  8,  6, 11, 14,
+                        14,  5,  4, 14, 14, 14, 14, 14,  0,  9, 13,  9,  8, 11,  9, 13,  9,  8, 14, 14,
                         14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14,
                         14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14,
                         14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14,
                         14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14,
                         14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14,
                         14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14};
-        
     
 extern bool isLetter[256];  //Spaceless word model needs space check. To speed up this check isLetter array is filled at the beginning.
 extern std::vector<WordPointer> words;  //Word length and start index values. Filled in first pass 
@@ -177,17 +176,17 @@ void extractWords(const std::vector<unsigned char>& inputBytes,StartEnd startEnd
     }
 }
 /*
-ç - 231 c3 a7 | 195 167 ->21 *
-ö - 246 c3 b6 | 195 182 ->22 *
-ü - 252 c3 bc | 195 188 ->23 *
-ı - 305 c4 b1 | 196 177 ->24 *
-ş - 351 c5 9f | 197 159 ->25 *
+ç - 231 c3 a7 | 195 167 ->128 *
+ö - 246 c3 b6 | 195 182 ->129 *
+ü - 252 c3 bc | 195 188 ->130 *
+ı - 305 c4 b1 | 196 177 ->131 *
+ş - 351 c5 9f | 197 159 ->132 *
 
-Ç - 199 c3 87 | 195 135 ->26 *
-Ö - 214 c3 96 | 195 150 ->27 *
-Ü - 220 c3 9c | 195 156 ->28 *
-İ - 304 c4 b0 | 196 176 ->29 *
-Ş - 350 c5 9e | 197 158 ->30*
+Ç - 199 c3 87 | 195 135 ->133 *
+Ö - 214 c3 96 | 195 150 ->134 *
+Ü - 220 c3 9c | 195 156 ->135 *
+İ - 304 c4 b0 | 196 176 ->136 *
+Ş - 350 c5 9e | 197 158 ->137 *
 */
 
 std::vector<unsigned char> convertTr(std::vector<unsigned char>& fileBytes){
@@ -196,35 +195,35 @@ std::vector<unsigned char> convertTr(std::vector<unsigned char>& fileBytes){
     for(int i=0;i<fileBytes.size()-1;i++){
         if(fileBytes[i] == 195){
             if(fileBytes[i+1]==167)
-                output.push_back(21);
+                output.push_back(128);
             else if(fileBytes[i+1]==182)
-                output.push_back(22);
+                output.push_back(129);
             else if(fileBytes[i+1]==188)
-                output.push_back(23);
+                output.push_back(130);
             else if(fileBytes[i+1]==135)
-                output.push_back(26);
+                output.push_back(133);
             else if(fileBytes[i+1]==150)
-                output.push_back(27);
+                output.push_back(134);
             else if(fileBytes[i+1]==156)
-                output.push_back(28);
+                output.push_back(135);
             else
                 output.push_back(fileBytes[i+1]);
             i++;
         }
         else if(fileBytes[i] == 196){
             if(fileBytes[i+1]==177)
-                output.push_back(24);
+                output.push_back(131);
             else if(fileBytes[i+1]==176)
-                output.push_back(29);
+                output.push_back(136);
             else
                 output.push_back(fileBytes[i+1]);
             i++;
         }
         else if(fileBytes[i] == 197){
             if(fileBytes[i+1]==159)
-                output.push_back(25);
+                output.push_back(132);
             else if(fileBytes[i+1]==158)
-                output.push_back(30);
+                output.push_back(137);
             else
                 output.push_back(fileBytes[i+1]);
             i++;
@@ -237,7 +236,7 @@ std::vector<unsigned char> convertTr(std::vector<unsigned char>& fileBytes){
 
 std::vector<char> firstPass(const std::string fileName,int coreCount,int mode) {
     fileBytes = readAllBytes(fileName);
-    fileBytes = convertTr(fileBytes);
+    //fileBytes = convertTr(fileBytes);
     FillIsLetter(); //Isletter array is created. Numbers and [a-zA-Z] values are 1 others are 0
 
     fileSize = fileBytes.size();

@@ -3,12 +3,23 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "extractWords(std::__1::vector&lt;unsigned char, std::__1::allocator&lt;unsigned char&gt; &gt; const&amp;, StartEnd, int, unsigned int&amp;, std::__1::array&lt;tsl::robin_map&lt;std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, unsigned int, std::__1::hash&lt;std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt; &gt;, std::__1::equal_to&lt;std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt; &gt;, std::__1::allocator&lt;std::__1::pair&lt;std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, unsigned int&gt; &gt;, false, tsl::rh::power_of_two_growth_policy&lt;2ul&gt; &gt;, 15ul&gt;&amp;, unsigned int, int):firstPass.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "words">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "firstPass(std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, int, int):firstPass.cpp">
          <PersistentStrings>
             <PersistentString
                value = "fileBytes">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "decode(std::__1::vector&lt;unsigned char, std::__1::allocator&lt;unsigned char&gt; &gt;, unsigned int, unsigned int, std::__1::vector&lt;char, std::__1::allocator&lt;char&gt; &gt;&amp;):decompress.cpp">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

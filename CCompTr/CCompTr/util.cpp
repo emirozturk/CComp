@@ -10,29 +10,28 @@
 bool isLetter[256];
 
 /*
-ç - 231 c3 a7 | 195 167 ->21 *
-ö - 246 c3 b6 | 195 182 ->22 *
-ü - 252 c3 bc | 195 188 ->23 *
-ı - 305 c4 b1 | 196 177 ->24 *
-ş - 351 c5 9f | 197 159 ->25 *
+ç - 231 c3 a7 | 195 167 ->128 *
+ö - 246 c3 b6 | 195 182 ->129 *
+ü - 252 c3 bc | 195 188 ->130 *
+ı - 305 c4 b1 | 196 177 ->131 *
+ş - 351 c5 9f | 197 159 ->132 *
 
-Ç - 199 c3 87 | 195 135 ->26 *
-Ö - 214 c3 96 | 195 150 ->27 *
-Ü - 220 c3 9c | 195 156 ->28 *
-İ - 304 c4 b0 | 196 176 ->29 *
-Ş - 350 c5 9e | 197 158 ->30*
+Ç - 199 c3 87 | 195 135 ->133 *
+Ö - 214 c3 96 | 195 150 ->134 *
+Ü - 220 c3 9c | 195 156 ->135 *
+İ - 304 c4 b0 | 196 176 ->136 *
+Ş - 350 c5 9e | 197 158 ->137 *
 */
 
 void FillIsLetter() {
     for(int i=0;i<256;i++)isLetter[i]=false;
-    for(int i=21;i<31;i++)
-        isLetter[i]=true;//for turkish  çöüış and ÇÖÜİŞ chars
     for(int i=48;i<58;i++)
         isLetter[i]=true;
 	for (int i = 65; i <= 90; i++)
 		isLetter[i] = true;
 	for (int i = 97; i <= 122; i++)
 		isLetter[i] = true;
+    for(int i=128;i<138;i++)isLetter[i]=true;//for turkish  çöüış and ÇÖÜİŞ chars
 }
 
 std::vector<char> getBytes(unsigned short val) {
